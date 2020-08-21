@@ -7,7 +7,7 @@ function install {
 
   if [ $? -ne 0 ]; then
     echo "Installing: ${1}..."
-    sudo apt install -y $1
+    sudo apt-get install -y $1
   else
     echo "Already installed: ${1}"
   fi
@@ -37,7 +37,8 @@ nvm install --lts --latest-npm
 npm install yarn pm2 -g
 
 echo "🐍 Installing Python"
-sudo apt install -y python3-venv python3-pip
+install python3-venv
+install python3-pip
 
 echo "Installing Go"
 
