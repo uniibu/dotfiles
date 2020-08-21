@@ -60,7 +60,7 @@ git_branch() {
 	echo -en "$color_stat$git_branch"
 }
 
-PS1="\[$BOLD_GREEN\]\u\ \[$BOLD_CYAN\]\w\[$BOLD_GREEN\]"'\$'"\[$COLOR_NONE\] "
+PS1="\[$BOLD_GREEN\]\u \[$CYAN\]\w\ [$BOLD_GREEN\]"'\$'"\[$COLOR_NONE\] "
 
 # Terminal
 # screen-256color if inside tmux, xterm-256color otherwise
