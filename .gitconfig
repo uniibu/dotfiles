@@ -1,0 +1,9 @@
+[core]
+        editor = /home/codespace/.local/bin/git-ed.sh
+        autocrlf = false
+        eol = lf
+[user]
+        name = Uni Sayo
+        email = unibtc@gmail.com
+[push]
+        default = simple

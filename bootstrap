@@ -1,0 +1,65 @@
+#!/bin/bash
+
+sudo apt update && sudo apt full-upgrade -y
+
+function install {
+  which $1 &> /dev/null
+
+  if [ $? -ne 0 ]; then
+    echo "Installing: ${1}..."
+    sudo apt install -y $1
+  else
+    echo "Already installed: ${1}"
+  fi
+}
+
+install curl
+install wget
+install git
+install nano
+install build_essential
+install htop
+install nmap
+install software-properties-common
+install apt-transport-https
+install ca-certificates
+install gnupg-agent
+
+echo "📦 Installing nvm"
+export NVM_DIR="$HOME/.nvm" && (
+  git clone https://github.com/nvm-sh/nvm.git "$NVM_DIR"
+  cd "$NVM_DIR"
+  git checkout `git describe --abbrev=0 --tags --match "v[0-9]*" $(git rev-list --tags --max-count=1)`
+) && \. "$NVM_DIR/nvm.sh"
+
+source ~/.bashrc
+nvm install --lts --latest-npm
+npm install yarn pm2 -g
+
+echo "🐍 Installing Python"
+sudo apt install -y python3-venv python3-pip
+
+echo "Installing Go"
+
+sudo add-apt-repository ppa:longsleep/golang-backports
+sudo apt update
+install golang-go
+
+go get github.com/github-release/github-release
+
+echo "🐋 Installing Docker"
+
+curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
+sudo add-apt-repository \
+   "deb [arch=amd64] https://download.docker.com/linux/ubuntu \
+   $(lsb_release -cs) \
+   stable"
+sudo apt update
+install docker-ce
+install docker-ce-cli
+install containerd.io
+sudo docker run hello-world
+
+sudo apt upgrade -y
+sudo apt autoremove -y
+
