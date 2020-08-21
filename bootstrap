@@ -1,6 +1,6 @@
 #!/bin/bash
 
-sudo apt update && sudo apt full-upgrade -y
+sudo apt update && sudo apt-get upgrade -y
 
 function install {
   which $1 &> /dev/null
@@ -60,6 +60,5 @@ install docker-ce-cli
 install containerd.io
 sudo docker run hello-world
 
-sudo apt upgrade -y
 sudo apt autoremove -y
 
