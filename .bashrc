@@ -73,7 +73,7 @@ fi
 # PATH for local settings
 export PATH="~/.local/bin/:$PATH"
 source ~/.completion.bash
-[ -s "$HOME/dotfiles/init.sh" ] && \. "$HOME/dotfiles/init.sh" # initial setup, will auto delete it self
+
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
