@@ -1,2 +1,10 @@
-ARG VARIANT=focal
-FROM mcr.microsoft.com/vscode/devcontainers/base:${VARIANT}
+FROM devpodio/base:focal-php
+
+WORKDIR $HOME
+
+COPY ../ .
+
+RUN bash ./bootstrap
+
+
+
