@@ -60,7 +60,7 @@ git_branch() {
 	echo -en "$color_stat$git_branch"
 }
 
-PS1="\[$BOLD_GREEN\][\[$BOLD_YELLOW\]\u\[$BOLD_GREEN\]@\[$BOLD_BLUE\]\h:\[$BOLD_RED\]"'`pwd`'"\[$BOLD_GREEN\]] "'`git_branch`'" \[$GRAY\]\t\n\[$BOLD_GREEN\]"'\$'"\[$COLOR_NONE\] "
+PS1="\[$BOLD_GREEN\]\u\ \[$BOLD_CYAN\]\w\[$BOLD_GREEN\]"'\$'"\[$COLOR_NONE\] "
 
 # Terminal
 # screen-256color if inside tmux, xterm-256color otherwise
@@ -73,7 +73,7 @@ fi
 # PATH for local settings
 export PATH="~/.local/bin/:$PATH"
 source ~/.completion.bash
-[ -s "$HOME/init.sh" ] && \. "$HOME/init.sh" # initial setup, will auto delete it self
+[ -s "$HOME/dotfiles/init.sh" ] && \. "$HOME/dotfiles/init.sh" # initial setup, will auto delete it self
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
